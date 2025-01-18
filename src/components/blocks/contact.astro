@@ -1,0 +1,99 @@
+---
+// Importamos los componentes básicos
+import H2 from "../ui/basics/h2.astro";
+import Titlehr from "../ui/basics/titlehr.astro";
+import Button1 from "../ui/basics/button1.astro";
+import H5 from "../ui/basics/h5.astro";
+
+import { Image } from "astro:assets";
+import laptopimage from "../../assets/images/laptop.jpeg";
+
+import Linkedin from "../ui/icons/linkedin.astro";
+import Instagram from "../ui/icons/instagram.astro";
+---
+<article class="min-h-screen flex flex-col items-center justify-center space-y-8 px-4 lg:px-0">
+    <!-- Encabezado -->
+    <section class="text-center space-y-2">
+        <H2>Contacto</H2>
+        <Titlehr />
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl bg-green_light-500 dark:bg-green-700 rounded-lg shadow-lg overflow-hidden">
+        <!-- Imagen -->
+        <aside class="hidden lg:block w-full lg:w-5/12">
+            <Image src={laptopimage} alt="Imagen de un ordenador portátil." 
+                   class="w-full h-full object-cover shadow-lg" loading="lazy" decoding="async" />
+        </aside>
+
+        <!-- Formulario -->
+        <section class="w-full lg:w-7/12 p-6 lg:p-8 space-y-8">
+            <!-- Texto y redes sociales -->
+            <div class="text-center space-y-4">
+                <H5>Envíame un mensaje</H5>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/joelarnaudcarreras/" 
+                       class="text-carbon-500 hover:text-green-400 transition">
+                        <Linkedin class="w-6 h-6 inline-block" />
+                    </a>
+                    <a href="https://www.instagram.com/sagiittarius24" 
+                       class="text-carbon-500 hover:text-green-400 transition">
+                        <Instagram class="w-6 h-6 inline-block" style="fill: currentColor;" />
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Formulario -->
+            <form id="contact-form" class="space-y-6">
+                <div class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Nombre"
+                        required
+                        class="w-full py-3 px-4 border rounded-md text-carbon-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    />
+                    <input
+                        type="text"
+                        name="lastname"
+                        placeholder="Apellidos"
+                        required
+                        class="w-full py-3 px-4 border rounded-md text-carbon-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    />
+                </div>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo"
+                    required
+                    class="w-full py-3 px-4 border rounded-md text-carbon-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <textarea
+                    name="message"
+                    placeholder="Mensaje"
+                    rows="4"
+                    class="w-full py-3 px-4 border rounded-md text-carbon-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                ></textarea>
+                <div class="text-center">
+                    <Button1 id="submit-button" variant="secondary" type="submit">Enviar</Button1>
+                </div>
+            </form>
+            
+            <!-- Contenedor de notificaciones -->
+            <div id="notification-container"></div>
+        </section>
+    </div>
+</article>
+
+<!-- <script>
+    import { handleContactFormSubmit } from "../../api/contactFormHandler.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+        if (form) {
+            form.addEventListener("submit", handleContactFormSubmit);
+        } else {
+            console.error("Formulario no encontrado: Asegúrate de que el ID 'contact-form' esté correctamente asignado.");
+        }
+    });
+</script> -->
