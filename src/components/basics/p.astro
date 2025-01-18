@@ -1,0 +1,17 @@
+---
+const { props, reverse } = Astro.props;
+---
+
+{reverse ? (
+    <>
+        <p class={`${props} prose prose-md md:prose-lg text-carbon-700 dark:text-gray-200 dark:prose-invert leading-relaxed font-medium max-w-2xl`}>  
+            <slot/>
+        </p>
+    </>
+) : (
+    <>
+        <p class={`${props} prose prose-md md:prose-lg text-carbon-400 dark:text-gray-200 dark:prose-invert leading-relaxed font-medium max-w-2xl`}>  
+            <slot/>
+        </p>
+    </>
+)}
