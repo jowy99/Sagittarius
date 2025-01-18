@@ -1,0 +1,27 @@
+---
+import Layout from "./../layouts/Layout.astro"
+import Estudios from "../components/blocks/studies.astro"
+import Trabajo from "../components/blocks/works.astro"
+import H2 from "../components/ui/basics/h2.astro"
+import Titlehr from "../components/ui/basics/titlehr.astro"
+import ABTContainer from "../components/ui/elements/imagetextContainer.astro"
+import joelimage from "../assets/images/joel.jpeg"
+import ReturnButton from "../components/ui/elements/returnButton.astro"
+---
+
+<Layout title="Joel Arnaud - Programador">
+    <section class="w-full p-4 xl:mt-12">
+        <ReturnButton/>
+        <div class="flex-col space-y-8 h-1/5 w-full mb-12">
+            <H2>Sobre mí</H2>
+            <Titlehr/>
+        </div>
+
+        <ABTContainer imageUrl={joelimage} imageAlt="Home image.">
+            <Estudios/>
+        </ABTContainer>
+        <ABTContainer reverse imageUrl={joelimage} imageAlt="Home image.">
+            <Trabajo/>
+        </ABTContainer>
+    </section>
+</Layout>
