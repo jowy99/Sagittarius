@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import ToolList from '../../components/ui/elements/toolsList.astro';
+import StatusList from '../../components/ui/elements/statusList.astro';
+import ReturnButton from "../../components/ui/elements/returnButton.astro";
+
+import H2 from "../../components/ui/basics/h2.astro";
+import P from "../../components/ui/basics/p.astro";
+import Button1 from "../../components/ui/basics/button1.astro";
+import Titlehr from "../../components/ui/basics/titlehr.astro";
+
+export async function getStaticPaths() {
+   const projects = await getCollection("projects");
+
+   return projects.map((project) => ({
+        params: { id: project.slug},
+        props: { project }
+   }))
+}
+
+const { project } = Astro.props;
+const { data, slug } = project;
+const { title, imageUrl, projectUrl, webUrl } = data;
+const status = data.status || [];
+const tools = data.tools || [];
+
+const { Content } = await project.render();
+console.log('DATA:', data);
+---
+<Layout title={title}>
+    <main class="flex flex-col min-h-screen">
+        <ReturnButton />
+        
+        <img transition:name={`img-${slug}`} src={`/${imageUrl}`} alt={title} class="w-full h-80 object-cover object-center" loading="lazy" decoding="async">
+
+        <article class="mt-8 mx-4 h-2/3 space-y-8 flex flex-col items-center">  
+            <H2>{title}</H2>
+            <Titlehr/>
+
+            <div class="prose dark:prose-invert leading-5 font-md text-carbon-400 dark:text-green_light-500">
+                <div class="flex">
+                    <StatusList status={status} />
+                </div>
+                <Content />
+            </div>
+
+            <div class="flex space-x-4">
+                <ToolList tools={tools} />
+            </div>
+            
+            <div class="flex space-x-8">
+                {projectUrl && (
+                    <a href={ projectUrl } target="_blank" rel="noopener noreferrer">
+                        <Button1>Ver proyecto</Button1>
+                    </a>
+                )}
+                {webUrl && (
+                    <a href={ webUrl } target="_blank" rel="noopener noreferrer">
+                        <Button1>Ver web</Button1>
+                    </a>
+                )}
+            </div>
+            
+        </article>
+    </main>
+</Layout>

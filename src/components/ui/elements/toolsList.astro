@@ -1,0 +1,40 @@
+---
+import Pill from "./pill.astro";
+interface Props {
+  tools: string[];
+}
+
+const { tools } = Astro.props as Props;
+
+// Cargar dinámicamente los componentes de íconos
+const icons = tools.length > 0
+  ? await Promise.all(
+      tools.map(async (tool) => {
+        try {
+          const Icon = await import(`../icons/${tool}.astro`);
+          return { tool, Icon: Icon.default };
+        } catch (e) {
+          console.error(`No se pudo cargar el ícono para ${tool}:`, e);
+          return { tool, Icon: null };
+        }
+      })
+    )
+  : [];
+---
+<ul class="flex flex-wrap gap-4 justify-center items-center">
+  {icons.length > 0 ? (
+    icons.map(({ tool, Icon }) =>
+      Icon ? (
+        <Pill lang={tool.charAt(0).toUpperCase() + tool.slice(1).toLowerCase()}>
+          <Icon/>
+        </Pill>
+      ) : (
+        <Pill>
+          <span class="text-red-600 dark:text-red-500">No se ha encontrado icono para '{tool}'</span>
+        </Pill>
+      )
+    )
+  ) : (
+    <li class="text-gray-500">No se han especificado herramientas para este proyecto.</li>
+  )}
+</ul>

@@ -1,0 +1,43 @@
+---
+import Layout from "./../layouts/Layout.astro"
+import H2 from "../components/ui/basics/h2.astro";
+import Titlehr from "../components/ui/basics/titlehr.astro";
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/ui/elements/projectCard.astro";
+import ReturnButton from "../components/ui/elements/returnButton.astro";
+
+const projects = await getCollection("projects");
+
+// Verificar que los datos tienen la propiedad date y ordenarlos
+const sortedProjects = projects
+  .filter(project => project.data.date) // Filtrar proyectos con fecha
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+---
+<Layout title="Joel Arnaud - Projects">
+    <section class="flex flex-col justify-between w-full min-h-screen space-y-12 p-4 lg:mt-12">
+        <ReturnButton/> 
+        <section class="space-y-8 w-full">
+            <H2>Mis proyectos</H2>
+            <Titlehr/>
+        </section>
+    
+        <main class="flex-grow grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {
+            sortedProjects.map(project => {
+              const { slug, data, body } = project;
+              const { title, imageUrl, projectUrl } = data;
+              return (
+                  <ProjectCard
+                    title={title}
+                    description={body}
+                    imageUrl={imageUrl}
+                    projectUrl={projectUrl}
+                    url={`/projects/${slug}`}
+                  ></ProjectCard>
+              )
+            })
+          }
+        </main>
+    </section>
+</Layout>
