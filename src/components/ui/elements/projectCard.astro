@@ -1,0 +1,19 @@
+---
+import H4 from '../basics/h4.astro';
+import { Image } from "astro:assets"
+
+const { title, description, imageUrl, projectUrl, url } = Astro.props;
+---
+
+<article class="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 h-full border border-gray-200 dark:border-gray-700">
+  <a href={url} class="group relative w-full h-full">
+      <img src={`/${imageUrl}`} 
+           alt="Development projects image" 
+           class="w-full h-full rounded-md object-cover bg-gray-100 dark:bg-gray-800 group-hover:opacity-100" 
+           loading="lazy" 
+           decoding="async">
+      <section class="w-max absolute inset-0">
+          <H4>{title}</H4>
+      </section>
+  </a>
+</article>

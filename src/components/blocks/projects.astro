@@ -1,0 +1,62 @@
+---
+import H2 from "../ui/basics/h2.astro";
+import Titlehr from "../ui/basics/titlehr.astro";
+import { getCollection } from "astro:content";
+import ProjectCard from "../ui/elements/projectCard.astro";
+import Button1 from "../ui/basics/button1.astro";
+
+const projects = await getCollection("projects");
+
+// Filtrar proyectos destacados y ordenarlos por fecha
+const featuredProjects = projects
+  .filter(project => project.data.featured && project.data.date) // Filtrar con fecha y destacados
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 4);
+
+  console.log("ola")
+---
+
+<section class="flex flex-col justify-between w-full min-h-screen p-4 space-y-8 lg:space-y-24 lg:mt-24">
+  <!-- Título de la sección -->
+  <section class="text-center">
+    <H2 class="mb-4">Mis proyectos</H2>
+    <Titlehr/>
+  </section>
+  
+  <!-- Texto minimalista con diseño elegante -->
+  <section class="flex items-center justify-center">
+    <p class="text-lg text-gray-700 dark:text-gray-200 font-medium text-center max-w-2xl leading-relaxed">
+      Proyectos desarrollados con atención al detalle, aplicando prácticas modernas de diseño y desarrollo web para ofrecer soluciones innovadoras y efectivas.
+    </p>
+  </section>
+
+  <!-- Contenedor principal con flexbox y responsive -->
+  <main class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      featuredProjects.map(project => {
+        const { slug, data, body } = project;
+        const { title, imageUrl, projectUrl } = data;
+        return (
+          <section class="flex justify-center">
+            <ProjectCard
+              transition:name={`img-${slug}`}
+              title={title}
+              description={body}
+              imageUrl={imageUrl}
+              projectUrl={projectUrl}
+              url={`/proyectos/${slug}`}
+              class="w-full h-full md:h-auto"
+            ></ProjectCard>
+          </section>
+        );
+      })
+    }
+  </main>
+
+  <!-- Botón centrado -->
+  <section class="flex items-center justify-center">
+    <a href="/proyectos">
+      <Button1>Más proyectos</Button1>
+    </a>
+  </section>
+</section>
