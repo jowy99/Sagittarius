@@ -2,6 +2,7 @@
 title: Monopoly
 imageUrl: monopoly.png
 projectUrl: https://github.com/jowy99/monopoly
+description: Versión básica del clásico juego de mesa, diseñada para ejecutarse en la terminal.
 date: 2022-10-20
 tools:
     - java

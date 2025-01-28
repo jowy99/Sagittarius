@@ -3,6 +3,7 @@ title: Aplicación del Tiempo
 imageUrl: weatherapp.png
 projectUrl: https://github.com/jowy99/weather-app
 webUrl: https://weather.joelarnaud.com
+description: Aplicación del tiempo sencilla que muestra información meteorológica, como la humedad, la presión y el pronóstico del clima para las próximas horas.
 date: 2024-11-15
 featured: true
 tools:

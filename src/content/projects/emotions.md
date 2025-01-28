@@ -3,6 +3,7 @@ title: Emotions App
 imageUrl: emotionsapp.png
 projectUrl: https://github.com/jowy99/emotions
 featured: true
+description: Aplicación web inspirada en el funcionamiento de Twitter, diseñada para facilitar a los usuarios la expresión sencilla y directa de sus sentimientos.
 date: 2023-12-01
 tools:
     - laravel

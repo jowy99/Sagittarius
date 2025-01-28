@@ -2,6 +2,7 @@
 title: Juego de Memoria
 imageUrl: memorygame.png
 projectUrl: https://github.com/jowy99/Juego-de-Memoria
+description: Un sencillo juego diseñado para entretener a los usuarios mientras ejercitan su memoria.
 date: 2022-11-20
 tools:
     - html

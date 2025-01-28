@@ -1,18 +1,28 @@
 ---
-import H4 from '../basics/h4.astro';
+import H3 from "../basics/h3.astro";
+import ToolsList from "./toolsList.astro";
 
-const { title, imageUrl, url } = Astro.props;
+const { title, imageUrl, slug, tools, description } = Astro.props;
 ---
 
-<article class="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 h-full border border-gray-200 dark:border-gray-700">
-  <a href={url} class="group relative w-full h-full">
-      <img src={`/${imageUrl}`} 
-           alt="Development projects image" 
-           class="w-full h-full rounded-md object-cover bg-gray-100 dark:bg-gray-800 group-hover:opacity-100" 
-           loading="lazy" 
-           decoding="async">
-      <section class="w-max absolute inset-0">
-          <H4>{title}</H4>
-      </section>
-  </a>
+<article class="flex flex-col w-full h-full overflow-hidden rounded-lg md:flex-row">
+  <div class="w-full md:w-1/3">
+    <img
+      src={imageUrl}
+      alt={title}
+      class="object-cover w-full h-full aspect-video"
+    />
+  </div>
+  <div class="relative flex flex-col h-full p-6 md:w-2/3">
+    <div class="pb-48 space-y-6">
+      <H3>{title}</H3>
+      <p class="font-medium leading-relaxed text-carbon-400 dark:text-green_light-500 prose-md md:prose-lg dark:prose-invert max-w-2xlprose">{description || "No hay descripción disponible."}</p>
+    </div>
+    <div class="absolute bottom-0">
+      <div class="flex flex-wrap gap-2 pb-6">
+        <ToolsList tools={tools} />
+      </div>
+      <a href={`/projects/${slug}`} aria-label=`Ver más de este proyecto.` class="font-medium hover:underline text-carbon-400 dark:text-white">Leer más →</a>
+    </div>
+  </div>
 </article>

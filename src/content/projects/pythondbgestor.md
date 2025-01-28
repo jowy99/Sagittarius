@@ -2,6 +2,7 @@
 title: Gestor DB Python
 imageUrl: pythondatabase.png
 projectUrl: https://github.com/jowy99/Proyecto-Python-SQL
+description: Aplicación académica diseñada para realizar operaciones básicas de gestión de bases de datos directamente desde la terminal.
 date: 2022-11-15
 tools:
     - python

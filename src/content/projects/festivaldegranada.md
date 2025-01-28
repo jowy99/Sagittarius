@@ -3,6 +3,7 @@ title: Festival de Granada
 imageUrl: festivaldegranada.png
 projectUrl: https://github.com/jowy99/FestivalDeGranada
 featured: true
+description: Aplicación diseñada para gestionar bases de datos de manera eficiente, reemplazando el uso de Excel en la organización donde realicé mis prácticas.
 date: 2023-04-22
 tools:
     - laravel
