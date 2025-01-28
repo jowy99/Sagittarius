@@ -1,9 +1,13 @@
 ---
 import P from '../basics/p.astro';
 
-const { lang, className } = Astro.props;
+const { lang, props } = Astro.props;
 ---
-<li class={`${className} flex items-center space-x-4 bg-green-100 text-white py-2.5 px-4 rounded-md shadow-md dark:bg-carbon-400`}>
-    <slot/>
+<li 
+    class={`${props} flex items-center space-x-4 py-2.5 px-4 rounded-md shadow-md 
+        bg-warm-200 text-neutral-800 
+        dark:bg-neutral-600 dark:text-light-50`}
+>
+    <slot />
     <P reverse>{lang}</P>
 </li>

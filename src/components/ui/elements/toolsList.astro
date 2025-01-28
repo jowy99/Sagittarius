@@ -26,15 +26,19 @@ const icons = tools.length > 0
     icons.map(({ tool, Icon }) =>
       Icon ? (
         <Pill lang={tool.charAt(0).toUpperCase() + tool.slice(1).toLowerCase()}>
-          <Icon/>
+          <Icon />
         </Pill>
       ) : (
         <Pill>
-          <span class="text-red-600 dark:text-red-500">No se ha encontrado icono para '{tool}'</span>
+          <span class="font-medium text-red-600 dark:text-red-500">
+            No se ha encontrado icono para '{tool}'
+          </span>
         </Pill>
       )
     )
   ) : (
-    <li class="text-gray-500">No se han especificado herramientas para este proyecto.</li>
+    <li class="font-medium text-neutral-500 dark:text-neutral-400">
+      No se han especificado herramientas para este proyecto.
+    </li>
   )}
 </ul>

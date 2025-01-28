@@ -1,49 +1,50 @@
 ---
 import H1 from "../ui/basics/h1.astro"
-import Button1 from "../ui/basics/button1.astro"
+import PrimaryButton from "../ui/basics/PrimaryButton.astro"
 import { Image } from "astro:assets"
 import joelimage from "../../assets/images/joel.jpeg"
+import SecondaryButton from "../ui/basics/SecondaryButton.astro"
 ---
 
-<section class="w-full h-screen min-h-screen lg:flex mb-12">
-  <article class="w-full h-full relative flex flex-col items-center justify-center">
-    <div class="w-full lg:hidden flex items-center justify-center mt-8 mb-8">
-      <Image src={joelimage} alt="Joel" class="w-36 h-36 md:w-48 md:h-48 rounded-full shadow-lg object-cover" loading="lazy" decoding="async" />
+<section class="w-full h-screen min-h-screen mb-12 lg:flex">
+  <article class="relative flex flex-col items-center justify-center w-full h-full">
+    <div class="flex items-center justify-center w-full mt-8 mb-8 lg:hidden">
+      <Image src={joelimage} alt="Joel" class="object-cover rounded-full shadow-lg w-36 h-36 md:w-48 md:h-48" loading="lazy" decoding="async" />
     </div>
     <div class="leading-5">
-      <div class="text-center mb-4">
+      <div class="mb-4 text-center">
         <H1>Joël</H1>
         <H1>Arnaud Carreras</H1>
       </div>
       <div class="mx-12 mt-8 lg:mx-24 lg:mt-12">
-        <p class="prose prose-md md:prose-lg dark:prose-invert leading-relaxed font-medium max-w-2xl text-carbon-400 dark:text-green_light-500">
-          Soy <span class="font-bold text-white">desarrollador web</span> con experiencia en Laravel y Astro, creando soluciones innovadoras y eficientes.
+        <p class="max-w-2xl font-medium leading-relaxed prose prose-md md:prose-lg dark:prose-invert text-neutral-600 dark:text-light-300">
+          Soy <span class="font-bold text-warm-600 dark:text-warm-400">desarrollador web</span> con experiencia en Laravel y Astro, creando soluciones innovadoras y eficientes.
         </p>
         <br>
-        <p class="prose prose-md md:prose-lg dark:prose-invert leading-relaxed font-medium max-w-2xl text-carbon-400 dark:text-green_light-500">
-          Trabajo en proyectos personales en GitHub y sigo aprendiendo para crecer como profesional mientras busco <span class="font-bold text-white">nuevas oportunidades</span>.
+        <p class="max-w-2xl font-medium leading-relaxed prose prose-md md:prose-lg dark:prose-invert text-neutral-600 dark:text-light-300">
+          Trabajo en proyectos personales en GitHub y sigo aprendiendo para crecer como profesional mientras busco <span class="font-bold text-warm-600 dark:text-warm-400">nuevas oportunidades</span>.
         </p>
       </div>
       <div class="flex items-center justify-center mt-12 space-x-12">
         <a href="/projects" aria-label="Ver los proyectos de Joël Arnaud Carreras">
-          <Button1>
+          <PrimaryButton>
             Mis proyectos
-          </Button1>
+          </PrimaryButton>
         </a>
         <a href="/aboutme" aria-label="Ver informacón sobre Joël Arnaud Carreras">
-          <Button1>
+          <SecondaryButton>
             Sobre mí
-          </Button1>
+          </SecondaryButton>
         </a>
       </div>
     </div>
   </article>
-  <aside class="hidden lg:flex w-full lg:w-8/12 h-screen">
+  <aside class="hidden w-full h-screen lg:flex lg:w-8/12">
     <div class="relative w-full h-full">
       <Image 
         src={joelimage} 
         alt="Joel" 
-        class="absolute inset-0 w-full h-full object-cover" 
+        class="absolute inset-0 object-cover w-full h-full" 
         loading="lazy" 
         decoding="async" 
       />
