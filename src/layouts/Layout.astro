@@ -9,10 +9,13 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content={`Descubre más sobre ${title} y los servicios que ofrezco.`}>
-    <meta name="keywords" content="Web developer, Joël Arnaud Carreras, Desarrollo web, Landing page, Programador junior">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Junior full stack web developer en búsqueda de su primer trabajo.">
+    <meta name="keywords" content="Joël Arnaud, Joel, Arnaud, Joel Arnaud, Desarrollo web, Creación de páginas web, Web developer, Landing pages, Programador web, Diseño de páginas web, Gestores de bases de datos, E-commerce, Tiendas online, Optimización SEO, Servicios web personalizados, Diseño web minimalista, Desarrollo web premium, Gestión de datos, Programación de sitios web, Soluciones digitales, Páginas exclusivas, Desarrollo de software, Diseño responsivo, Mejora de presencia digital, Agencia de desarrollo web, Innovación digital">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#27272a" />
     <meta name="robots" content="index, follow">
+    <meta name="author" content="Joël Arnaud Carreras">
+    <meta name="language" content="es">
 
     <!-- OG Meta Tags -->
     <meta property="og:url" content="https://test.joelarnaud.com/">
@@ -48,7 +51,7 @@ const { title } = Astro.props;
 
     <title>{title}</title>
   </head>
-  <body class="font-AlbertSans antialiased dark:bg-zinc-800">
+  <body class="antialiased font-AlbertSans dark:bg-zinc-800">
     <slot/>
     <Footer/>
   </body>
