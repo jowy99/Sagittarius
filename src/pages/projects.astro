@@ -23,24 +23,26 @@ const sortedProjects = projects
     </section>
 
     <main class="flex flex-col w-full space-y-8 max-w-7xl">
-      <hr>
+      <hr/>
       {
-      sortedProjects.map((project) => {
-        const { slug, data } = project;
-        const { title, imageUrl, description } = data;
-        const tools = data.tools || [];
-
-        return (
-          <ProjectCard
-            title={title}
-            imageUrl={imageUrl}
-            slug={slug}
-            tools={tools}
-            description={description}
-          />
-          <hr>
-        );
-      })}
+        sortedProjects.map((project) => {
+          const { slug, data } = project;
+          const { title, imageUrl, description } = data;
+          const tools = data.tools || [];
+          return (
+            <section class="flex justify-center h-full">
+              <ProjectCard
+                title={title}
+                imageUrl={imageUrl}
+                slug={slug}
+                tools={tools}
+                description={description}
+              />
+            </section>
+            <hr/>
+          );
+        })
+      }
     </main>
   </section>
 </Layout>

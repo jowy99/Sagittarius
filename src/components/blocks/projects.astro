@@ -31,9 +31,9 @@ const featuredProjects = projects
   <!-- Contenedor principal con flexbox y responsive -->
   <main class="grid grid-cols-1 gap-8 max-w-7xl md:p-8">
     {
-      featuredProjects.map(project => {
+      featuredProjects.map((project) => {
         const { slug, data } = project;
-        const { title, imageUrl, projectUrl, description } = data;
+        const { title, imageUrl, description } = data;
         const tools = data.tools || [];
         return (
           <section class="flex justify-center h-full">
