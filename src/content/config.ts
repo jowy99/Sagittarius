@@ -5,7 +5,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     imageUrl: z.string(),
-    projectUrl: z.string().url(),
+    projectUrl: z.string().url().optional(),
     featured: z.boolean().optional().default(false), // Valor predeterminado "false"
     webUrl: z.string().url().optional(),
     description: z.string(),

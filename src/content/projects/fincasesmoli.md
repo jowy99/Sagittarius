@@ -1,7 +1,7 @@
 ---
 title: Fincas es Molí
 imageUrl: fincasesmoli.png
-projectUrl: https://fincasesmoli.com/es
+webUrl: https://fincasesmoli.com/es
 featured: true
 description: Página web desarrollada para una inmobiliaria de Menorca, cuyo objetivo principal era mejorar su presencia online con un diseño moderno, rápido y funcional.
 date: 2023-04-09
