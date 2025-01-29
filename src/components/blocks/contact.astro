@@ -62,7 +62,7 @@ import Instagram from "../ui/icons/instagram.astro";
             name="name"
             placeholder="Nombre"
             required
-            class="w-full px-4 py-3 border rounded-md text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
+            class="w-full px-4 py-3 border rounded-md focus:valid:border-done focus-visible:valid:border-done focus-visible:invalid:border-laravel focus:invalid:border-laravel text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
             aria-label="Nombre"
           />
           <input
@@ -70,7 +70,7 @@ import Instagram from "../ui/icons/instagram.astro";
             name="lastname"
             placeholder="Apellidos"
             required
-            class="w-full px-4 py-3 border rounded-md text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
+            class="w-full px-4 py-3 border rounded-md focus:valid:border-done focus-visible:valid:border-done focus-visible:invalid:border-laravel focus:invalid:border-laravel text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
             aria-label="Apellidos"
           />
         </div>
@@ -79,7 +79,7 @@ import Instagram from "../ui/icons/instagram.astro";
           name="email"
           placeholder="Correo"
           required
-          class="w-full px-4 py-3 border rounded-md text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
+          class="w-full px-4 py-3 border rounded-md focus:valid:border-done focus-visible:valid:border-done focus-visible:invalid:border-laravel focus:invalid:border-laravel text-neutral-800 dark:text-light-50 dark:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-soft-700"
           aria-label="Correo electrónico"
         />
         <textarea
@@ -90,7 +90,7 @@ import Instagram from "../ui/icons/instagram.astro";
           aria-label="Mensaje"
         ></textarea>
         <div class="text-center">
-          <PrimaryButton id="submit-button" variant="secondary" type="submit">Contactar</PrimaryButton>
+          <PrimaryButton id="submit-button" type="submit">Enviar mensaje</PrimaryButton>
         </div>
       </form>
 
