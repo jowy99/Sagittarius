@@ -31,7 +31,7 @@ const { Content } = await project.render();
     <main class="flex flex-col min-h-screen">
         <ReturnButton />
         
-        <img transition:name={`img-${slug}`} src={`/${imageUrl}`} alt={title} class="object-cover object-center w-full h-80" loading="lazy" decoding="async">
+        <img transition:name={`img-${slug}`} src={`/${imageUrl}`} alt={title} class="object-cover object-center w-full h-[50vh] md:h-[60vh] lg:h-[70vh]" loading="lazy" decoding="async">
 
         <article class="flex flex-col items-center mx-4 mt-8 space-y-8 h-2/3">  
             <H2>{title}</H2>
