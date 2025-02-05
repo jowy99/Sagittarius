@@ -28,6 +28,7 @@ const sortedProjects = projects
         sortedProjects.map((project) => {
           const { slug, data } = project;
           const { title, imageUrl, description } = data;
+          const status = data.status || [];
           const tools = data.tools || [];
           return (
             <section class="flex justify-center h-full">
@@ -37,6 +38,7 @@ const sortedProjects = projects
                 slug={slug}
                 tools={tools}
                 description={description}
+                status={status}
               />
             </section>
             <hr/>
