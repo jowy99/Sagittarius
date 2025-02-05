@@ -11,29 +11,31 @@ tools:
     - vite
     - tailwind
 status:
-    - inprogress
+    - finished
     - corefeatures
 ---
-**Weather App** es una aplicación del tiempo sencilla que muestra información meteorológica, como la humedad, la presión y el pronóstico del clima para las próximas horas.
+**Weather App** es una aplicación del tiempo con múltiples funcionalidades, que permite consultar el clima de cualquier ciudad en tiempo real. Implementa una interfaz moderna, accesible y minimalista.
 
 ## Mi rol y responsabilidades
 
-Desarrollé completamente la aplicación por mi cuenta, utilizando **React** por primera vez. Durante el desarrollo, implementé una interfaz moderna con **TailwindCSS** y aproveché la API de **weatherapi.com** para obtener los datos necesarios.
+Desarrollé esta aplicación desde cero, utilizando **React** y **TailwindCSS** para el diseño. Implementé el consumo de datos meteorológicos a través de **weatherapi.com**, además de funcionalidades avanzadas como almacenamiento de ubicaciones favoritas y atajos de teclado para mejorar la experiencia del usuario.
 
 ## Desafíos y soluciones
 
-Actualmente, el mayor desafío ha sido implementar la detección automática de la ubicación del usuario, un aspecto que estoy trabajando en mejorar.
+Uno de los mayores desafíos fue optimizar la gestión de la ubicación del usuario y la caché de datos meteorológicos para minimizar el número de peticiones a la API. También trabajé en mejorar la experiencia de usuario con un diseño responsive y accesible.
 
 ## Público objetivo y propósito
 
-Esta aplicación no tiene un público específico. Al haber muchas aplicaciones similares en el mercado, la desarrollé como un proyecto de aprendizaje para profundizar en **React** y otras herramientas modernas.
+Si bien existen muchas aplicaciones similares, esta fue creada como un proyecto de aprendizaje con el objetivo de afianzar mis conocimientos en **React**, consumo de APIs y diseño moderno con **TailwindCSS**.
 
 ## Aspectos destacados
 
-- Pronóstico detallado del tiempo, incluyendo humedad, presión y condiciones climáticas.  
-- Búsqueda manual de ubicación (en desarrollo).  
-- Diseño moderno y minimalista.
+- Atajos de teclado para búsqueda rápida de ciudades.  
+- Posibilidad de guardar hasta 5 ubicaciones favoritas.  
+- Cambio dinámico entre modo claro y oscuro.  
+- Pronóstico detallado con información sobre humedad, presión y condiciones meteorológicas.  
+- Diseño optimizado para móviles y escritorio.  
 
 ## Logros y aprendizajes
 
-Este proyecto ha sido una oportunidad para familiarizarme con **React** y mejorar mi habilidad para consumir datos de APIs externas. También me ha permitido experimentar con el diseño utilizando **TailwindCSS**.
+Este proyecto me permitió mejorar mis habilidades en **React**, comprender mejor el manejo de estados y optimizar el rendimiento mediante el almacenamiento en caché. También adquirí experiencia en diseño UI con **TailwindCSS** y en la implementación de atajos de teclado para mejorar la usabilidad.

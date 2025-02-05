@@ -1,8 +1,9 @@
 ---
 import H3 from "../basics/h3.astro";
 import ToolsList from "./toolsList.astro";
+import StatusList from "./statusList.astro";
 
-const { title, imageUrl, slug, tools, description } = Astro.props;
+const { title, imageUrl, slug, tools, description, status } = Astro.props;
 ---
 <article class="flex flex-col w-full h-full overflow-hidden rounded-lg shadow-sm md:flex-row bg-light-200 dark:bg-neutral-700">
   <!-- Imagen -->
@@ -19,6 +20,15 @@ const { title, imageUrl, slug, tools, description } = Astro.props;
     <div class="pb-48 space-y-6">
       <!-- Título -->
       <H3>{title}</H3>
+      <div class="flex flex-wrap gap-2">
+        {status.length > 0 ? (
+          <StatusList status={status} />
+        ) : (
+          <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+            No status available.
+          </p>
+        )}
+      </div>
 
       <!-- Descripción -->
       <p class="max-w-2xl font-medium leading-relaxed text-neutral-700 dark:text-light-300 prose-md md:prose-lg dark:prose-invert">

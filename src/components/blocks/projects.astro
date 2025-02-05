@@ -34,6 +34,7 @@ const featuredProjects = projects
       featuredProjects.map((project) => {
         const { slug, data } = project;
         const { title, imageUrl, description } = data;
+        const status = data.status || [];
         const tools = data.tools || [];
         return (
           <section class="flex justify-center h-full">
@@ -43,6 +44,7 @@ const featuredProjects = projects
               slug={slug}
               tools={tools}
               description={description}
+              status={status}
             />
           </section>
         );
