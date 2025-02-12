@@ -55,7 +55,7 @@ import Instagram from "../ui/icons/instagram.astro";
       </div>
 
       <!-- Formulario -->
-      <form id="contact-form" class="space-y-6">
+      <form action="/api/sendEmail" method="post" enctype="application/x-www-form-urlencoded" id="contact-form" class="space-y-6">
         <div class="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
           <input
             type="text"
