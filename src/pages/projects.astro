@@ -26,7 +26,7 @@ const sortedProjects = projects
       <hr/>
       {
         sortedProjects.map((project) => {
-          const { slug, data } = project;
+          const { id, data } = project;
           const { title, imageUrl, description } = data;
           const status = data.status || [];
           const tools = data.tools || [];
@@ -35,7 +35,7 @@ const sortedProjects = projects
               <ProjectCard
                 title={title}
                 imageUrl={`/${imageUrl}`}
-                slug={slug}
+                slug={id}
                 tools={tools}
                 description={description}
                 status={status}

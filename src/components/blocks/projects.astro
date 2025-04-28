@@ -39,7 +39,7 @@ const featuredProjects = projects
   <main class="grid grid-cols-1 gap-8 max-w-7xl md:p-8">
     {
       featuredProjects.map((project) => {
-        const { slug, data } = project;
+        const { id, data } = project;
         const { title, imageUrl, description } = data;
         const status = data.status || [];
         const tools = data.tools || [];
@@ -48,7 +48,7 @@ const featuredProjects = projects
             <ProjectCard
               title={title}
               imageUrl={imageUrl}
-              slug={slug}
+              slug={id}
               tools={tools}
               description={description}
               status={status}

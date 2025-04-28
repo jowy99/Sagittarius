@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import ToolList from '../../components/ui/elements/toolsList.astro';
@@ -11,15 +12,21 @@ import Titlehr from "../../components/ui/basics/titlehr.astro";
 import SecondaryButton from "../../components/ui/basics/SecondaryButton.astro";
 
 export async function getStaticPaths() {
-   const projects = await getCollection("projects");
+  const projects = await getCollection('projects');
 
-   return projects.map((project) => ({
-        props: { project }
-   }))
+  return projects.map((project) => ({
+    params: { id: project.id }, // ¡id, no slug!
+    props: { project },
+  }));
 }
 
 const { project } = Astro.props;
-const { data, slug } = project;
+
+if (!project) {
+  throw new Error("Proyecto no encontrado");
+}
+
+const { data, id } = project; // Aquí obtenemos el ID que actuará como slug
 const { title, imageUrl, projectUrl, webUrl } = data;
 const status = data.status || [];
 const tools = data.tools || [];
@@ -27,38 +34,37 @@ const tools = data.tools || [];
 const { Content } = await project.render();
 ---
 <Layout title={title}>
-    <main class="flex flex-col min-h-screen">
-        <ReturnButton />
-        
-        <img transition:name={`img-${slug}`} src={`/${imageUrl}`} alt={title} class="object-cover object-center w-full h-[50vh] md:h-[60vh] lg:h-[70vh]" loading="lazy" decoding="async">
+  <main class="flex flex-col min-h-screen">
+    <ReturnButton />
+    
+    <img transition:name={`img-${id}`} src={`/${imageUrl}`} alt={title} class="object-cover object-center w-full h-[50vh] md:h-[60vh] lg:h-[70vh]" loading="lazy" decoding="async">
 
-        <article class="flex flex-col items-center mx-4 mt-8 space-y-8 h-2/3">  
-            <H2>{title}</H2>
-            <Titlehr/>
+    <article class="flex flex-col items-center mx-4 mt-8 space-y-8 h-2/3">  
+      <H2>{title}</H2>
+      <Titlehr/>
 
-            <div class="leading-5 prose dark:prose-invert font-md text-carbon-400 dark:text-soft-500">
-                <div class="flex">
-                    <StatusList status={status} />
-                </div>
-                <div class="flex space-x-8">
-                    {projectUrl && (
-                        <a href={ projectUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en GitHub">
-                            <PrimaryButton>Ver proyecto</PrimaryButton>
-                        </a>
-                    )}
-                    {webUrl && (
-                        <a href={ webUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en la web">
-                            <SecondaryButton>Ver web</SecondaryButton>
-                        </a>
-                    )}
-                </div>
-                <Content />
-            </div>
+      <div class="leading-5 prose dark:prose-invert font-md text-carbon-400 dark:text-soft-500">
+        <div class="flex">
+          <StatusList status={status} />
+        </div>
+        <div class="flex space-x-8">
+          {projectUrl && (
+            <a href={ projectUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en GitHub">
+              <PrimaryButton>Ver proyecto</PrimaryButton>
+            </a>
+          )}
+          {webUrl && (
+            <a href={ webUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en la web">
+              <SecondaryButton>Ver web</SecondaryButton>
+            </a>
+          )}
+        </div>
+        <Content />
+      </div>
 
-            <div class="flex space-x-4">
-                <ToolList tools={tools} />
-            </div>
-            
-        </article>
-    </main>
+      <div class="flex space-x-4">
+        <ToolList tools={tools} />
+      </div>
+    </article>
+  </main>
 </Layout>
