@@ -10,7 +10,6 @@ tools:
     - tailwind
     - javascript
 status:
-    - unfinished
     - inprogress
     - corefeatures
 ---

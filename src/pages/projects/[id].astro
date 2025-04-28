@@ -14,7 +14,6 @@ export async function getStaticPaths() {
    const projects = await getCollection("projects");
 
    return projects.map((project) => ({
-        params: { id: project.slug},
         props: { project }
    }))
 }
@@ -41,24 +40,23 @@ const { Content } = await project.render();
                 <div class="flex">
                     <StatusList status={status} />
                 </div>
+                <div class="flex space-x-8">
+                    {projectUrl && (
+                        <a href={ projectUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en GitHub">
+                            <PrimaryButton>Ver proyecto</PrimaryButton>
+                        </a>
+                    )}
+                    {webUrl && (
+                        <a href={ webUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en la web">
+                            <SecondaryButton>Ver web</SecondaryButton>
+                        </a>
+                    )}
+                </div>
                 <Content />
             </div>
 
             <div class="flex space-x-4">
                 <ToolList tools={tools} />
-            </div>
-            
-            <div class="flex space-x-8">
-                {projectUrl && (
-                    <a href={ projectUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en GitHub">
-                        <PrimaryButton>Ver proyecto</PrimaryButton>
-                    </a>
-                )}
-                {webUrl && (
-                    <a href={ webUrl } target="_blank" rel="noopener noreferrer" aria-label="Ver el proyecto en la web">
-                        <SecondaryButton>Ver web</SecondaryButton>
-                    </a>
-                )}
             </div>
             
         </article>
